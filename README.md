@@ -1,4 +1,4 @@
-なるほど！このプログラムは **自身（EXE）の死活監視を Consul に登録し、監視するためのもの** です。  
+このプログラムは **自身（EXE）の死活監視を Consul に登録し、監視するためのもの** です。  
 現在の実装では `TTL` ヘルスチェックを使っていますが、**プロセスのクラッシュやフリーズを検出する方法** を強化すると、より確実な監視ができます。  
 
 ---
@@ -34,7 +34,7 @@ class Program
     {
         string serviceId = "process-orders";
 
-        using var client = new ConsulClient(config => config.Address = new Uri("http://192.168.1.10:8500"));
+        using var client = new ConsulClient(config => config.Address = new Uri("http://localhost:8500"));
 
         Console.CancelKeyPress += async (sender, eventArgs) =>
         {
